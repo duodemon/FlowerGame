@@ -26,6 +26,21 @@ class Game:
 
 def main():
     game = Game()
-    while 1:
-        game.new_round()
-        while 1:
+    game.new_round()
+    for player in game.players:
+        print("Player " + str(player.id) + ": " + str(player.hand))
+        input_string = input("Play card(s): ")
+        index_list = [int(x) for x in input_string.split(",")]
+        if len(index_list) == 1:
+            removed_card = player.hand.remove_card(index_list[0])
+            print("Player " + str(player.id) + " played " + str(removed_card))
+
+        elif len(index_list) > 1:
+            removed_cards = CardSet(player.hand.remove_cards(index_list))
+            print("Player " + str(player.id) + " played " + str(removed_cards))
+
+        print("Player " + str(player.id) + " remaining cards: " + str(player.hand))
+
+
+if __name__ == "__main__":
+    main()

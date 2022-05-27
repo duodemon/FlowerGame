@@ -17,7 +17,7 @@ class Card:
         return self.value == other.value
 
     def __str__(self):
-        return
+        return self.id.name
 
 
 class Color(Enum):

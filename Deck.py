@@ -1,8 +1,10 @@
 from Card import *
 import random as rand
 
+from CardSet import CardSet
 
-class Deck(list):
+
+class Deck(CardSet):
     def __init__(self):
         super().__init__()
         for i in range(2):
@@ -41,4 +43,4 @@ class Deck(list):
         self.extend(sub_deck_2)
 
     def draw(self):
-        return self.pop()
+        return self.remove_top_card()
